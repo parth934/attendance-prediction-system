@@ -28,14 +28,29 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 ## 📁 Repository Structure
 
 ```text
-├── app.py                            # Streamlit web application
-├── best_attendance_model.pkl         # Trained Gradient Boosting pipeline (StandardScaler + OneHotEncoder + Regressor)
-├── attendance_featured.csv           # Feature-engineered dataset for EDA
-├── raw_classroom_attendance_500.csv  # Raw dataset records
-├── train_local.py                    # Model training pipeline script
-├── requirements.txt                  # Python dependencies for deployment
-├── attendance_capstone_report.docx   # Academic project capstone report
-└── README.md                         # Project documentation
+├── 01_datasets/
+│   ├── raw_classroom_attendance_500.csv    # Raw dataset (500 lecture sessions)
+│   └── attendance_featured.csv             # Feature-engineered dataset
+│
+├── 02_source_code/
+│   ├── train_local.py                      # Model training & preprocessing pipeline
+│   └── requirements.txt                    # Project dependencies
+│
+├── 03_deployment/
+│   ├── app.py                              # Streamlit web application
+│   ├── best_attendance_model.pkl           # Pre-trained Gradient Boosting pipeline
+│   ├── attendance_featured.csv             # Dataset for interactive analytics
+│   └── requirements.txt                    # Deployment dependencies
+│
+├── 04_documentation/
+│   └── attendance_capstone_report.docx     # Capstone academic report
+│
+├── app.py                                  # Root deployment entry point
+├── best_attendance_model.pkl               # Model binary
+├── attendance_featured.csv                 # Feature dataset
+├── requirements.txt                        # Root dependencies for cloud hosting
+├── .gitignore                              # Git exclusion rules
+└── README.md                               # Project documentation & setup guide
 ```
 
 ---
