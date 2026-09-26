@@ -28,6 +28,7 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 ## 📁 Repository Structure
 
 ```text
+attendance_capstone/
 ├── 01_datasets/
 │   ├── raw_classroom_attendance_500.csv    # Raw dataset (500 lecture sessions)
 │   └── attendance_featured.csv             # Feature-engineered dataset
@@ -45,9 +46,6 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 ├── 04_documentation/
 │   └── attendance_capstone_report.docx     # Capstone academic report
 │
-├── app.py                                  # Root deployment entry point
-├── best_attendance_model.pkl               # Model binary
-├── attendance_featured.csv                 # Feature dataset
 ├── requirements.txt                        # Root dependencies for cloud hosting
 ├── .gitignore                              # Git exclusion rules
 └── README.md                               # Project documentation & setup guide
@@ -79,7 +77,7 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 
 4. **Launch the Streamlit app:**
    ```bash
-   streamlit run app.py
+   streamlit run 03_deployment/app.py
    ```
 
 ---
@@ -90,13 +88,13 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 1. Fork or push this repository to GitHub (`parth934/attendance-prediction-system`).
 2. Go to [share.streamlit.io](https://share.streamlit.io/) and log in with GitHub.
 3. Click **Create app** > Select repo `parth934/attendance-prediction-system`.
-4. Set **Main file path** to `app.py`.
+4. Set **Main file path** to `03_deployment/app.py`.
 5. Click **Deploy!**
 
 ### Option 2: Render
 - **Environment:** Python 3
 - **Build Command:** `pip install -r requirements.txt`
-- **Start Command:** `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
+- **Start Command:** `streamlit run 03_deployment/app.py --server.port $PORT --server.address 0.0.0.0`
 
 ---
 
