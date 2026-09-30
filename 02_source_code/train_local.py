@@ -27,7 +27,7 @@ for p in possible_dataset_paths:
 if not dataset_path:
     raise FileNotFoundError("Could not locate attendance_featured.csv")
 
-print(f"📂 Loading dataset from: {dataset_path}")
+print(f"[INFO] Loading dataset from: {dataset_path}")
 df = pd.read_csv(dataset_path)
 
 # 2. Features and Target
@@ -79,4 +79,4 @@ for sp in save_paths:
     except Exception:
         pass
 
-print("✅ Model retrained and saved to root and 03_deployment folders!")
+print("[SUCCESS] Model retrained and saved to root and 03_deployment folders!")

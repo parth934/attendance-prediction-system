@@ -8,8 +8,23 @@ import os
 
 st.set_page_config(
     page_title="Classroom Attendance Predictor & Analytics",
-    page_icon="🎓",
+    page_icon=":material/school:",
     layout="wide"
+)
+
+# Hide Streamlit menu, toolbar, and footer
+st.markdown(
+    """
+    <style>
+    #MainMenu {visibility: hidden; display: none !important;}
+    footer {visibility: hidden; display: none !important;}
+    header {visibility: hidden; display: none !important;}
+    div[data-testid="stToolbar"] {visibility: hidden; display: none !important;}
+    div[data-testid="stDecoration"] {visibility: hidden; display: none !important;}
+    div[data-testid="stStatusWidget"] {visibility: hidden; display: none !important;}
+    </style>
+    """,
+    unsafe_allow_html=True
 )
 
 # Load pipeline model safely
@@ -44,20 +59,20 @@ def load_data():
 try:
     pipeline = load_model()
     df_featured = load_data()
-    st.sidebar.success("✅ ML Pipeline & Dataset Loaded")
+    st.sidebar.success("ML Pipeline & Dataset Loaded", icon=":material/check_circle:")
 except Exception as e:
-    st.sidebar.error("⚠️ Ensure model and dataset files are present in the directory.")
+    st.sidebar.error("Ensure model and dataset files are present in the directory.", icon=":material/warning:")
     st.stop()
 
 # Tab Navigation
-tab1, tab2 = st.tabs(["🚀 Real-Time Attendance Predictor", "📊 Exploratory Data Analytics (EDA)"])
+tab1, tab2 = st.tabs([":material/bolt: Real-Time Attendance Predictor", ":material/analytics: Exploratory Data Analytics (EDA)"])
 
 # ----------------- TAB 1: PREDICTOR -----------------
 with tab1:
-    st.title("🎓 Classroom Attendance Predictive System")
+    st.title(":material/school: Classroom Attendance Predictive System")
     st.markdown("Forecast attendance percentages based on historical signals and timetable constraints.")
 
-    st.sidebar.header("📋 Scheduling Parameters")
+    st.sidebar.header(":material/tune: Scheduling Parameters")
     subject = st.sidebar.selectbox(
         "Subject",
         ["Python Programming", "Database Management Systems", "Machine Learning", 
@@ -88,7 +103,7 @@ with tab1:
         [1, 2, 3, 4]
     )
 
-    st.sidebar.subheader("📌 Contextual Signals")
+    st.sidebar.subheader(":material/flag: Contextual Signals")
     is_test_week = st.sidebar.checkbox("Internal Examination / Test Week")
     assignment_due = st.sidebar.checkbox("Assignment Deadline Today")
     holiday_adjacent = st.sidebar.checkbox("Holiday Adjacent (Day Before/After Break)")
@@ -115,15 +130,15 @@ with tab1:
 
     col1, col2 = st.columns([1, 1], gap="large")
     with col1:
-        st.subheader("⚙️ Configured Session Overview")
+        st.subheader(":material/settings: Configured Session Overview")
         st.table(pd.DataFrame({
             "Parameter": ["Subject", "Day", "Lecture Slot", "Class Format", "Timing Window", "Weather"],
             "Value": [subject, day_of_week, lecture_number, "Practical (Lab)" if is_practical == 1.0 else "Theory", slot_type, weather]
         }))
 
     with col2:
-        st.subheader("📊 Forecasted Attendance")
-        if st.button("🚀 Forecast Attendance", use_container_width=True, type="primary"):
+        st.subheader(":material/trending_up: Forecasted Attendance")
+        if st.button("Forecast Attendance", icon=":material/insights:", use_container_width=True, type="primary"):
             pred = max(0.0, min(100.0, pipeline.predict(input_df)[0]))
             total_enrolled = 60
             headcount = int(round((pred / 100.0) * total_enrolled))
@@ -134,15 +149,15 @@ with tab1:
             
             st.write("")
             if pred >= 75.0:
-                st.success("🟢 **High Attendance Expected (≥ 75%)** — Routine schedule recommended.")
+                st.success("**High Attendance Expected (≥ 75%)** — Routine schedule recommended.", icon=":material/check_circle:")
             elif pred >= 50.0:
-                st.warning("🟡 **Moderate Attendance Expected (50% - 75%)** — Monitor slot scheduling.")
+                st.warning("**Moderate Attendance Expected (50% - 75%)** — Monitor slot scheduling.", icon=":material/info:")
             else:
-                st.error("🔴 **Low Attendance Warning (< 50%)** — Proactive timetable adjustment recommended.")
+                st.error("**Low Attendance Warning (< 50%)** — Proactive timetable adjustment recommended.", icon=":material/warning:")
 
 # ----------------- TAB 2: DATA VISUALIZATIONS -----------------
 with tab2:
-    st.title("📊 Attendance Trend & Factor Analysis")
+    st.title(":material/analytics: Attendance Trend & Factor Analysis")
     st.markdown("Visual exploration of attendance drivers across subjects, time slots, and academic calendar events.")
     
     if df_featured is not None:
@@ -190,4 +205,4 @@ with tab2:
             ax4.tick_params(axis='x', rotation=45)
             st.pyplot(fig4)
     else:
-        st.warning("⚠️ `attendance_featured.csv` is needed in the folder to render analytics charts.")
+        st.warning("`attendance_featured.csv` is needed in the folder to render analytics charts.", icon=":material/warning:")

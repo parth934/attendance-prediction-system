@@ -1,4 +1,4 @@
-# 🎓 Classroom Attendance Prediction & Analytics System
+# Classroom Attendance Prediction & Analytics System
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://attendance-predictor.streamlit.app)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -9,15 +9,15 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 
 ---
 
-## 📌 Features
+## Features
 
-- **🚀 Real-Time Attendance Predictor:**
+- **Real-Time Attendance Predictor:**
   - Interactive parameters: Subject, Day of the Week, Lecture Slot, Weather condition, Previous lecture attendance, Faculty experience, and Gap days.
   - Contextual toggles: Internal exam week, Assignment deadlines, Holiday proximity, and Campus events.
   - Generates forecasted attendance percentage and estimated classroom headcount out of 60 students.
   - Actionable scheduling advisory tags (High, Moderate, Low attendance recommendations).
 
-- **📊 Exploratory Data Analytics (EDA):**
+- **Exploratory Data Analytics (EDA):**
   - Attendance distribution across subjects (Boxplot).
   - Attendance variation across lecture slots and timing windows (Morning vs. Afternoon).
   - Impact analysis of exam weeks and holiday proximity.
@@ -25,7 +25,7 @@ A Machine Learning powered web application built with **Streamlit** and **Scikit
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 attendance_capstone/
@@ -53,7 +53,7 @@ attendance_capstone/
 
 ---
 
-## 🛠️ Local Installation & Setup
+## Local Installation & Setup
 
 1. **Clone the repository:**
    ```bash
@@ -82,7 +82,7 @@ attendance_capstone/
 
 ---
 
-## ☁️ Deployment Guide
+## Deployment Guide
 
 ### Option 1: Streamlit Community Cloud (Recommended)
 1. Fork or push this repository to GitHub (`parth934/attendance-prediction-system`).
@@ -98,6 +98,6 @@ attendance_capstone/
 
 ---
 
-## 👨‍💻 Author & Acknowledgements
+## Author & Acknowledgements
 - **Author:** Parth
 - **Tech Stack:** Python, Streamlit, Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn, Joblib
